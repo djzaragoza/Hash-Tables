@@ -58,7 +58,21 @@ class HashTable:
         linked_pair = LinkedPair(key, value)
 
         if self.storage[index]:
-        # if collision, store the lp at the tail of the existing ll
+            if self.retrieve(key):
+                linked_list = self.storage[index]
+                current = linked_list.head
+                while current:
+                    if current.key == key:
+                        current.value = value
+                    current = current.next
+            else:
+                linked_list = self.storage[index]
+                linked_list.tail.next = linked_pair
+                linked_list.tail = linked_pair
+
+        else:
+            self.storage[index] LinkedList(linked_pair)
+        return self
 
         pass
 
@@ -72,6 +86,8 @@ class HashTable:
 
         Fill this in.
         '''
+        
+        
         pass
 
 

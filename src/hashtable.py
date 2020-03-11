@@ -44,7 +44,7 @@ class HashTable:
         return self._hash(key) % self.capacity
 
     def insert(self, key, value):
-        '''
+
         Store the value with the given key.
 
         # Part 1: Hash collisions should be handled with an error warning. (Think about and
@@ -52,7 +52,7 @@ class HashTable:
 
         # Part 2: Change this so that hash collisions are handled with Linked List Chaining.
 
-        Fill this in.
+        # Fill this in.
 
         index - self.hash_mod(key)
         linked_pair = LinkedPair(key, value)
@@ -76,20 +76,46 @@ class HashTable:
 
         pass
 
-
-
     def remove(self, key):
-        '''
-        Remove the value stored with the given key.
+        # '''
+        # Remove the value stored with the given key.
 
-        Print a warning if the key is not found.
+        # Print a warning if the key is not found.
+        # '''
+        # Fill this in.
 
-        Fill this in.
-        '''
-        
-        
+        linked_pair_value self.retrieve(key)
+        index = self._hash.mod(key)
+        linked_list = self.storage[index]
+
+        if linked_pair_value:
+            current = linked_list.head
+            prev = current
+
+            # if there's only one linked_pair in the list
+            if current == linked_list.head and current == linked_list.tail:
+                self.storage[index] = None
+                return True
+            # else if the head has the key we want to remove:
+        elif current.key == key:
+            linked_list.head = current.next
+            current.next = None
+            return True
+        else:
+            print('current value', current.value)
+            print('prev value', prev.value)
+            while current:
+                if current.key == key:
+                    if linked_list.tail == current:
+                        linked_list.tail = prev
+                    prev.next = current.next
+                    current.next = None
+                    return True
+                prev = current
+
+                current = current.next
+        return "bleep"
         pass
-
 
     def retrieve(self, key):
         '''
@@ -101,7 +127,6 @@ class HashTable:
         '''
         pass
 
-
     def resize(self):
         '''
         Doubles the capacity of the hash table and
@@ -110,7 +135,6 @@ class HashTable:
         Fill this in.
         '''
         pass
-
 
 
 if __name__ == "__main__":
